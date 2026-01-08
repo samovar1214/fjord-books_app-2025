@@ -23,6 +23,10 @@
   </head>
 
   <body class="<%= params[:action] %>">
+    <header>
+      <%= link_to "English", locale: :en %> |
+      <%= link_to "日本語", locale: :ja %>
+    </header>
     <%= yield %>
   </body>
 </html>
