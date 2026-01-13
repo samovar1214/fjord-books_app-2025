@@ -10,10 +10,13 @@ ja:
         picture: 写真
 
   books:
-    titles:
-      index: 本の一覧
-      edit: 編集
-      new: 新規登録
+    index:
+      title: 本の一覧
+    edit:
+      title: 編集
+    new:
+      title: 新規登録
+
     links:
       show: 詳細
       edit: 編集

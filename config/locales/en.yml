@@ -39,10 +39,13 @@ en:
         picture: Picture
 
   books:
-    titles:
-      index: Books
-      edit: Editing Book
-      new: New Book
+    index:
+      title: Books
+    edit:
+      title: Editing Book
+    new:
+      title: New Book
+
     links:
       show: Show This Book
       edit: Edit This Book
