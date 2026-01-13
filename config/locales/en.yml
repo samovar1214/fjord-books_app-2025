@@ -53,12 +53,6 @@ en:
     back: Back To Books
     destroy: Destroy This Book
 
-  helpers:
-    submit:
-      book:
-        create: Create Book
-        update: Update Book
-
   controllers:
     notice:
       create: "%{name} was successfully created."
