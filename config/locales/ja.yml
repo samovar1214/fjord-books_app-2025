@@ -17,13 +17,12 @@ ja:
     new:
       title: 新規登録
 
-    links:
-      show: 詳細
-      edit: 編集
-      new: 新規登録
-      back: 一覧に戻る
-    buttons:
-      destroy: 削除
+  actions:
+    show: 詳細
+    edit: 編集
+    new: 新規登録
+    back: 一覧に戻る
+    destroy: 削除
 
   helpers:
     submit:

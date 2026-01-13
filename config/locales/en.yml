@@ -46,13 +46,12 @@ en:
     new:
       title: New Book
 
-    links:
-      show: Show This Book
-      edit: Edit This Book
-      new: New Book
-      back: Back To Books
-    buttons:
-      destroy: Destroy This Book
+  actions:
+    show: Show This Book
+    edit: Edit This Book
+    new: New Book
+    back: Back To Books
+    destroy: Destroy This Book
 
   helpers:
     submit:
