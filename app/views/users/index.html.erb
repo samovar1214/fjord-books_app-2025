@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, t('.title') %>
+
+<h1><%= t('.title') %></h1>
+
+<div id="users" class="index-items">
+  <% @users.each do |user| %>
+    <div class="index-item">
+      <%= render user %>
+      <p>
+        <%= link_to t('actions.show'), user_path(user) %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @users %>
