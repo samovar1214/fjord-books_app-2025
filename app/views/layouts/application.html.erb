@@ -23,6 +23,15 @@
   </head>
 
   <body class="<%= params[:action] %>">
+    <header>
+      <% if user_signed_in? %>
+        <nav>
+          <%= link_to t('books.index.title'), books_path %> |
+          <%= link_to t('users.index.title'), users_path %> |
+          <%= button_to t('actions.logout'), destroy_user_session_path, method: :delete %>
+        </nav>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
