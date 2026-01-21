@@ -74,3 +74,6 @@ end
 gem 'carrierwave'
 gem 'devise'
 gem 'kaminari'
+gem 'devise-i18n'
+gem 'rails-i18n', '~> 8.0.0'
+

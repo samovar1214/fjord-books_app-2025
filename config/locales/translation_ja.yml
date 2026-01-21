@@ -9,3 +9,88 @@ ja:
         memo: メモ
         picture: 画像
         title: タイトル
+      user:
+        email: メールアドレス
+        postal_code: 郵便番号
+        address: 住所
+        introduction: 自己紹介
+
+  books:
+    index:
+      title: 本の一覧
+    edit:
+      title: 編集
+    new:
+      title: 新規登録
+
+  users:
+    index:
+      title: ユーザー一覧
+    edit:
+      title: アカウント設定
+
+  actions:
+    show: 詳細
+    edit: 編集
+    new: 新規登録
+    back: 一覧に戻る
+    destroy: 削除
+    log_in: ログイン
+    log_out: ログアウト
+    cancel_my_account: アカウントの削除
+    sign_up: アカウント登録
+    forgot_password: パスワードを忘れた
+    send_reset_mail: 再設定用メールを送る
+    change_password: パスワードを再設定
+
+  controllers:
+    notice:
+      create: "%{name}を登録しました。"
+      update: "%{name}を更新しました。"
+      destroy: "%{name}を削除しました。"
+
+  views:
+    pagination:
+      first: « 先頭
+      last: 最後 »
+      previous: ‹ 前へ
+      next: 次へ ›
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "%{entry_name}が見つかりません"
+          one: "<b>1</b>件の%{entry_name}を表示中"
+          other: "全<b>%{count}</b>件の%{entry_name}を表示中"
+      more_pages:
+        display_entries: "%{entry_name} <b>%{first}~%{last}</b>件目を表示中(全<b>%{total}</b>件中)"
+
+  devise:
+    shared:
+      minimum_characters: "※%{count}文字以上"
+    registrations:
+      new:
+        title: アカウント登録
+      edit:
+        title: アカウント設定
+        leave_blank: （変更しない場合は空欄のままにしてください）
+        need_current_password: （変更を反映するために現在のパスワードが必要です）
+        cancel_my_account: アカウントの削除
+        unhappy: 削除しますか？
+    sessions:
+      new:
+        title: ログイン
+    passwords:
+      new:
+        title: パスワードを忘れた場合
+      edit:
+        title: パスワードの再設定
+        new_password: 新しいパスワード
+        confirm_new_password: 新しいパスワード（確認）
+    mailer:
+      reset_password_instructions:
+        greeting: "%{email} 様"
+        instruction: パスワード再設定のご依頼を受け付けました。以下のリンクからパスワードを変更できます。
+        ignore: このメールに心当たりがない場合は削除してください。
+        warning: リンクにアクセスして新しいパスワードを設定するまで、パスワードは変更されません。

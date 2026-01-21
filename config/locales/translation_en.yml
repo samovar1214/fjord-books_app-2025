@@ -9,3 +9,88 @@ en:
         memo: Memo
         picture: Picture
         title: Title
+      user:
+        email: E-mail
+        postal_code: Postal Code
+        address: Address
+        introduction: Introduction
+
+  books:
+    index:
+      title: Books
+    edit:
+      title: Editing Book
+    new:
+      title: New Book
+
+  users:
+    index:
+      title: Users
+    edit:
+      title: Account Settings
+
+  actions:
+    show: Show
+    edit: Edit
+    new: New
+    back: Back
+    destroy: Destroy
+    log_in: Log in
+    log_out: Log out
+    cancel_my_account: Cancel my account
+    sign_up: Sign up
+    forgot_password: Forgot your password?
+    send_reset_mail: Send me reset password instructions
+    change_password: Change password
+
+  controllers:
+    notice:
+      create: "%{name} was successfully created."
+      update: "%{name} was successfully updated."
+      destroy: "%{name} was successfully destroyed."
+
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first}–%{last}</b> of <b>%{total}</b> in total"
+
+  devise:
+    shared:
+      minimum_characters: "%{count} characters minimum"
+    registrations:
+      new:
+        title: Sign up
+      edit:
+        title: Edit User
+        leave_blank: (leave blank if you don't want to change it)
+        need_current_password: (we need your current password to confirm your changes)
+        cancel_my_account: Cancel my account
+        unhappy: Unhappy?
+    sessions:
+      new:
+        title: Log in
+    passwords:
+      new:
+        title: Forgot your password?
+      edit:
+        title: Change your password
+        new_password: New password
+        confirm_new_password: Confirm new password
+    mailer:
+      reset_password_instructions:
+        greeting: "Hello %{email}!"
+        instruction: Someone has requested a link to change your password. You can do this through the link below.
+        ignore: If you didn't request this, please ignore this email.
+        warning: Your password won't change until you access the link above and create a new one.
