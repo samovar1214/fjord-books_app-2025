@@ -5,7 +5,7 @@
 
 <div class="field">
   <%= f.label :icon %><br />
-  <%= f.file_field :icon %>
+  <%= f.file_field :icon, accept: User::ACCEPTED_CONTENT_TYPES.join(',') %>
 </div>
 
 <div class="field">
