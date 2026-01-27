@@ -4,6 +4,11 @@
 </div>
 
 <div class="field">
+  <%= f.label :icon %><br />
+  <%= f.file_field :icon, accept: User::ACCEPTED_CONTENT_TYPES.join(',') %>
+</div>
+
+<div class="field">
   <%= f.label :postal_code %><br />
   <%= f.text_field :postal_code %>
 </div>
