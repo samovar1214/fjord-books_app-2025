@@ -28,6 +28,7 @@
         <nav>
           <%= link_to t('books.index.title'), books_path %> |
           <%= link_to t('users.index.title'), users_path %> |
+          <%= link_to t('users.edit.title'), edit_user_registration_path %> |
           <%= button_to t('actions.log_out'), destroy_user_session_path, method: :delete %>
         </nav>
       <% end %>
