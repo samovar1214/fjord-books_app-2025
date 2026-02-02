@@ -36,8 +36,6 @@ ja:
     back: 一覧に戻る
     destroy: 削除
     log_out: ログアウト
-    cancel_my_account: アカウントの削除
-    sign_up: アカウント登録
 
   controllers:
     notice:
@@ -61,16 +59,3 @@ ja:
           other: "全<b>%{count}</b>件の%{entry_name}を表示中"
       more_pages:
         display_entries: "%{entry_name} <b>%{first}~%{last}</b>件目を表示中(全<b>%{total}</b>件中)"
-
-  devise:
-    shared:
-      minimum_characters: "※%{count}文字以上"
-    registrations:
-      new:
-        title: アカウント登録
-      edit:
-        title: アカウント設定
-        leave_blank: （変更しない場合は空欄のままにしてください）
-        need_current_password: （変更を反映するために現在のパスワードが必要です）
-        cancel_my_account: アカウントの削除
-        unhappy: 削除しますか？
