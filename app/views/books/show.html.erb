@@ -12,15 +12,15 @@
 </nav>
 
 </div>
-  <h2>コメント</h2>
+  <h2><%= Comment.model_name.human %></h2>
   <% if @comments.any? %>
     <%= render @comments, commentable: @book %>
   <% else %>
-    <p> コメントはまだありません。</p>
+    <p><%= t('views.common.no_record', name: Comment.model_name.human) %></p>
   <% end %>
 </div>
 
 </div>
-  <h2>コメント投稿フォーム</h2>
+  <h2><%= t('views.common.new', name: Comment.model_name.human) %></h2>
   <%= render 'comments/form', commentable: @book, comment: @comment %>
 </div>

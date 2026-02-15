@@ -3,7 +3,7 @@
     <% if comment.user %>
       <%= comment.user.name.presence || comment.user.email %>
     <% else %>
-      deleted user
+      <%= t('views.common.deleted_user') %>
     <% end %>
   </strong>
 </p>
@@ -13,6 +13,6 @@
 <p><%= comment.body %></p>
 
 <% if comment.user == current_user %>
-  <%= link_to "Edit this comment", edit_polymorphic_path([commentable, comment]) %>
-  <%= button_to "Destroy this comment", [commentable, comment], method: :delete %>
+  <%= link_to t('views.common.edit', name: i18n_pluralize(Comment.model_name.human.downcase)), edit_polymorphic_path([commentable, comment]) %>
+  <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase), [commentable, comment], method: :delete %>
 <% end %>

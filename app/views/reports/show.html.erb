@@ -1,24 +1,25 @@
+<h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
 <%= render @report %>
 
 <div>
 <% if @report.user == current_user %>
-  <%= link_to "Edit this report", edit_report_path(@report) %> |
-  <%= button_to "Destroy this report", @report, method: :delete %>
+  <%= link_to t('views.common.edit', name: Report.model_name.human.downcase), edit_report_path(@report) %> |
+  <%= button_to t('views.common.destroy', name: Report.model_name.human.downcase), @report, method: :delete %>
 <% end %>
 
-<%= link_to "Back to reports", reports_path %>
+<%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path %>
 </div>
 
 <div>
-  <h2>コメント</h2>
+  <h2><%= Comment.model_name.human %></h2>
   <% if @comments.any? %>
     <%= render @comments, commentable: @report %>
   <% else %>
-    <p> コメントはまだありません。</p>
+    <p><%= t('views.common.no_record', name: Comment.model_name.human) %></p>
   <% end %>
 </div>
 
 <div>
-  <h2>コメント投稿フォーム</h2>
+  <h2><%= t('views.common.new', name: Comment.model_name.human) %></h2>
   <%= render 'comments/form', commentable: @report, comment: @comment %>
 </div>
