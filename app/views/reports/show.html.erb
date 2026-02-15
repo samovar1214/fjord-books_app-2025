@@ -8,3 +8,17 @@
 
 <%= link_to "Back to reports", reports_path %>
 </div>
+
+<div>
+  <h2>コメント</h2>
+  <% if @comments.any? %>
+    <%= render @comments, commentable: @report %>
+  <% else %>
+    <p> コメントはまだありません。</p>
+  <% end %>
+</div>
+
+<div>
+  <h2>コメント投稿フォーム</h2>
+  <%= render 'comments/form', commentable: @report, comment: @comment %>
+</div>

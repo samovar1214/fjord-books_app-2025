@@ -1,0 +1,18 @@
+<p>
+  <strong>
+    <% if comment.user %>
+      <%= comment.user.name.presence || comment.user.email %>
+    <% else %>
+      deleted user
+    <% end %>
+  </strong>
+</p>
+
+<p><%= l comment.created_at, format: :short %></p>
+
+<p><%= comment.body %></p>
+
+<% if comment.user == current_user %>
+  <%= link_to "Edit this comment", edit_polymorphic_path([commentable, comment]) %>
+  <%= button_to "Destroy this comment", [commentable, comment], method: :delete %>
+<% end %>
