@@ -14,7 +14,9 @@
 </div>
   <h2><%= Comment.model_name.human %></h2>
   <% if @comments.any? %>
-    <%= render @comments, commentable: @book %>
+    <div class="show-item">
+      <%= render @comments, commentable: @book %>
+    </div>
   <% else %>
     <p><%= t('views.common.no_record', name: Comment.model_name.human) %></p>
   <% end %>
