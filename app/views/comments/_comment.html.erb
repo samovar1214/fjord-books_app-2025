@@ -1,20 +1,18 @@
-<p>
-  <strong>
-    <% if comment.user %>
-      <%= comment.user.name.presence || comment.user.email %>
-    <% else %>
-      <%= t('views.common.deleted_user') %>
-    <% end %>
-  </strong>
-</p>
+<div class="show-item">
+  <p>
+    <strong>
+      <%= comment.user ? comment.user.display_name : t('views.common.deleted_user') %>
+    </strong>
+  </p>
 
-<p><%= l comment.created_at, format: :short %></p>
+  <p><%= l comment.created_at, format: :short %></p>
 
-<p><%= comment.body %></p>
+  <p><%= comment.body %></p>
 
-<% if comment.user == current_user %>
-  <nav class="page-nav">
-    <%= link_to t('views.common.edit', name: i18n_pluralize(Comment.model_name.human.downcase)), edit_polymorphic_path([commentable, comment]) %>
-    <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase), [commentable, comment], method: :delete %>
-  </nav>
-<% end %>
+  <% if comment.user == current_user %>
+    <nav class="page-nav">
+      <%= link_to t('views.common.edit', name: i18n_pluralize(Comment.model_name.human.downcase)), edit_polymorphic_path([commentable, comment]) %>
+      <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase), [commentable, comment], method: :delete %>
+    </nav>
+  <% end %>
+</div>
