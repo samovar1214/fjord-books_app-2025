@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CommentsController < ApplicationController
+class Reports::CommentsController < ApplicationController
   before_action :set_commentable
   before_action :set_my_comment, only: %i[edit update destroy]
 
@@ -12,7 +12,9 @@ class CommentsController < ApplicationController
     redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
   end
 
-  def edit; end
+  def edit
+    render 'comments/edit'
+  end
 
   def update
     @comment.update!(comment_params)
@@ -27,11 +29,7 @@ class CommentsController < ApplicationController
   private
 
   def set_commentable
-    if params[:book_id]
-      @commentable = Book.find(params[:book_id])
-    elsif params[:report_id]
-      @commentable = Report.find(params[:report_id])
-    end
+    @commentable = Report.find(params[:report_id])
   end
 
   def set_my_comment
