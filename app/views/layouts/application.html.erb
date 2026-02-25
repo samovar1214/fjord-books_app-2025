@@ -39,7 +39,7 @@
         </ul>
         <div class="title">
           <%# html_safeを使っているが、XSSは発生しないのを確認済み %>
-          <%= t('.sign_in_as', user: link_to(current_user_name(current_user), current_user)).html_safe %>
+          <%= t('.sign_in_as', user: link_to(current_user.display_name, current_user)).html_safe %>
         </div>
         <ul>
           <li>
