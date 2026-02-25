@@ -3,10 +3,10 @@
 
 <h1><%= title %></h1>
 
-<%= render "comments/form", commentable: @commentable, comment: @comment %>
+<%= render "comments/form", comment: @comment %>
 
 <br>
 
 <nav class="page-nav">
-  <%= link_to t('views.common.back', name: i18n_pluralize(Comment.model_name.human.downcase)), @commentable %>
+  <%= link_to t('views.common.back', name: i18n_pluralize(Comment.model_name.human.downcase)), @comment.commentable %>
 </nav>
