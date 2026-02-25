@@ -5,8 +5,24 @@
 </div>
 
 <nav class="page-nav">
-  <%= link_to t('views.common.edit', name: Book.model_name.human.downcase), edit_book_path(@book) %> |
-  <%= link_to t('views.common.back', name: i18n_pluralize(Book.model_name.human.downcase)), books_path %>
-
+  <%= link_to t('views.common.edit', name: Book.model_name.human.downcase), edit_book_path(@book) %>
   <%= button_to t('views.common.destroy', name: Book.model_name.human.downcase), @book, method: :delete %>
+</nav>
+
+<div>
+  <h2><%= Comment.model_name.human %></h2>
+  <% if @book.comments.any? %>
+    <%= render @book.comments.includes(:user).order(:created_at) %>
+  <% else %>
+    <p><%= t('views.common.no_record', name: Comment.model_name.human) %></p>
+  <% end %>
+</div>
+
+<div>
+  <h2><%= t('views.common.new', name: Comment.model_name.human) %></h2>
+  <%= render 'comments/form', comment: @book.comments.build %>
+</div>
+
+<nav class="page-nav">
+  <%= link_to t('views.common.back', name: i18n_pluralize(Book.model_name.human.downcase)), books_path %>
 </nav>
