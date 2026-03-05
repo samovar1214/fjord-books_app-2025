@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Report < ApplicationRecord
+  after_save :update_mentions
+
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :active_mentions, class_name: 'ReportMention', foreign_key: 'mentioning_report_id', dependent: :destroy, inverse_of: :mentioning_report
@@ -17,5 +19,12 @@ class Report < ApplicationRecord
 
   def created_on
     created_at.to_date
+  end
+
+  private
+
+  def update_mentions
+    report_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i).uniq
+    self.mentioning_reports = Report.where(id: report_ids)
   end
 end
