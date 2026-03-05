@@ -1,0 +1,9 @@
+<% if report.mentioned_reports.any? %>
+  <hr>
+  <strong><%= t('application.reports.mentioned_in') %>:</strong>
+  <ul>
+    <% report.mentioned_reports.order(created_at: :asc).each do |mentioning_report| %>
+      <li><%= link_to mentioning_report.title, report_path(mentioning_report) %></li>
+    <% end %>
+  </ul>
+<% end %>
