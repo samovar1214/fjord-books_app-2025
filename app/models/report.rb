@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Report < ApplicationRecord
-  after_save :update_mentions
-
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :active_mentions, class_name: 'ReportMention', foreign_key: 'mentioning_report_id', dependent: :destroy, inverse_of: :mentioning_report
@@ -12,6 +10,8 @@ class Report < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
+
+  after_save :update_mentions
 
   def editable?(target_user)
     user == target_user
@@ -24,7 +24,7 @@ class Report < ApplicationRecord
   private
 
   def update_mentions
-    report_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i).uniq
+    report_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i).uniq - [id]
     self.mentioning_reports = Report.where(id: report_ids)
   end
 end
