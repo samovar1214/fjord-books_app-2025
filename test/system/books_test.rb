@@ -4,42 +4,46 @@ require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
   setup do
-    @book = books(:one)
+    @book = create(:book)
+    @user = create(:user)
+
+    visit root_path
+    fill_in 'Eメール', with: @user.email
+    fill_in 'パスワード', with: @user.password
+    click_on 'ログイン'
+    assert_text 'ログインしました'
   end
 
-  test 'visiting the index' do
+  test '本を作成できること' do
     visit books_url
-    assert_selector 'h1', text: 'Books'
+    click_on '本の新規作成'
+    fill_in 'タイトル', with: '変身'
+    fill_in 'メモ', with: '個人に対する不条理を描いています。'
+    fill_in '著者', with: 'カフカ'
+    attach_file '画像', Rails.root.join('test/fixtures/files/book_blue.png')
+    click_on '登録する'
+    assert_text '本が作成されました。'
+    assert_text '変身'
+    assert_selector 'img'
   end
 
-  test 'should create book' do
-    visit books_url
-    click_on 'New book'
-
-    fill_in 'Memo', with: @book.memo
-    fill_in 'Title', with: @book.title
-    click_on 'Create Book'
-
-    assert_text 'Book was successfully created'
-    click_on 'Back'
+  test '本を更新できること' do
+    visit book_path(@book)
+    click_on 'この本を編集'
+    fill_in 'タイトル', with: 'ペスト'
+    fill_in 'メモ', with: '集団に対する不条理を描いています。'
+    fill_in '著者', with: 'カミュ'
+    attach_file '画像', Rails.root.join('test/fixtures/files/book_red.png')
+    click_on '更新する'
+    assert_text '本が更新されました。'
+    assert_text 'ペスト'
+    assert_selector 'img'
   end
 
-  test 'should update Book' do
-    visit book_url(@book)
-    click_on 'Edit this book', match: :first
-
-    fill_in 'Memo', with: @book.memo
-    fill_in 'Title', with: @book.title
-    click_on 'Update Book'
-
-    assert_text 'Book was successfully updated'
-    click_on 'Back'
-  end
-
-  test 'should destroy Book' do
-    visit book_url(@book)
-    click_on 'Destroy this book', match: :first
-
-    assert_text 'Book was successfully destroyed'
+  test '本を削除できること' do
+    visit book_path(@book)
+    click_on 'この本を削除'
+    assert_text '本が削除されました。'
+    assert_no_text @book.title
   end
 end
