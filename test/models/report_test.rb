@@ -36,7 +36,7 @@ class ReportTest < ActiveSupport::TestCase
   test 'さらに他の日報のURLを追記して更新した場合、言及先も更新されること' do
     create_mention
     another_report = create(:report)
-    @mentioning_report.update(content: "http://localhost:3000/reports/#{@report.id}とhttp://localhost:3000/reports/#{another_report.id}を見ました。")
+    @mentioning_report.update!(content: "http://localhost:3000/reports/#{@report.id}とhttp://localhost:3000/reports/#{another_report.id}を見ました。")
 
     assert_includes @mentioning_report.mentioning_reports, @report
     assert_includes @mentioning_report.mentioning_reports, another_report
@@ -44,7 +44,7 @@ class ReportTest < ActiveSupport::TestCase
 
   test '日報から他の日報のURLが削除された場合、言及関係も消えること' do
     create_mention
-    @mentioning_report.update(content: 'URLを削除しました。')
+    @mentioning_report.update!(content: 'URLを削除しました。')
 
     assert_empty @mentioning_report.reload.mentioning_reports
   end

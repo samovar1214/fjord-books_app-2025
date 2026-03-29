@@ -9,7 +9,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test '名前が登録されていない場合はname_or_emailがメールアドレスを返すこと' do
-    user = build(:user, name: nil)
-    assert_equal user.email, user.name_or_email
+    user = build(:user, email: 'alice@example.com', name: nil)
+    assert_equal 'alice@example.com', user.name_or_email
   end
 end
